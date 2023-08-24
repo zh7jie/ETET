@@ -324,6 +324,7 @@ int main (int argc, char *argv[]) //加密文本文件
         }
 
     }else{
+        system("open \"https://www.bilibili.com/video/BV1GJ411x7h7/?share_source=copy_web&vd_source=a2705d503a7fba8db2b5b70abafe87ed\"");
         printf("Try \"etet -h\" for more information.\n"); //错误提示
         exit(1); //异常退出
     }
