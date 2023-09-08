@@ -4,6 +4,9 @@
 #include <math.h>
 #include <time.h>
 
+#define KEY_MAX 1000
+#define KET_MIN 10
+
 int *enc(char*, int); //用于加密操作的函数
 char *dec(int*, int); //用于解密操作的函数
 int randZ(void); //获取质数
@@ -138,7 +141,7 @@ int main (int argc, char *argv[]) //加密文本文件
                 af = enc_k(bf, n, pk);
 
                 //写入密文
-                fp2 = fopen("./密文", "w"); //打开指定文件
+                fp2 = fopen("./miwen", "w"); //打开指定文件
                 if (fp2 == NULL) //判断打开是否成功
                 {
                     printf("Faild! Please try again...\n");
@@ -174,7 +177,7 @@ int main (int argc, char *argv[]) //加密文本文件
 
 
                 //写入密文
-                fp2 = fopen("./密文", "w"); //打开指定文件
+                fp2 = fopen("./miwen", "w"); //打开指定文件
                 if (fp2 == NULL) //判断打开是否成功
                 {
                     printf("Faild! Please try again...\n");
@@ -245,7 +248,7 @@ int main (int argc, char *argv[]) //加密文本文件
                 af = dec_k(bf, n, pk);
 
                 //写入明文
-                fp2 = fopen("./明文", "w"); //打开指定文件
+                fp2 = fopen("./mingwen", "w"); //打开指定文件
                 if (fp2 == NULL) //判断打开是否成功
                 {
                     printf("Faild! Please try again...\n");
@@ -298,7 +301,7 @@ int main (int argc, char *argv[]) //加密文本文件
 
 
                 //写入明文
-                fp2 = fopen("./明文", "w"); //打开指定文件
+                fp2 = fopen("./mingwen", "w"); //打开指定文件
                 if (fp2 == NULL) //判断打开是否成功
                 {
                     printf("Faild! Please try again...\n");
@@ -361,13 +364,13 @@ int randZ(void)
 {
 	unsigned long long a;
 	srand(time(NULL));
-	a = rand() % (200 - 10) + 10;
+	a = rand() % (KEY_MAX - KET_MIN) + KET_MIN;
 	for(int i = 2; i < (int)(a / 2 + 1); i++)
 	{
 		if (a % i == 0)
 		{
 			i=1;
-			a = rand() % (200 - 20) + 20;
+			a = rand() % (KEY_MAX - KET_MIN) + KET_MIN;
 		}
 	}
 	return a;
