@@ -192,7 +192,7 @@ void keyg(void)
 	//printf("p=%llu\nq=%llu\nn=%llu\nl=%llu\ne=%llu\nd=%llu\n%llu\n",p,q,n,l,e,d,tmp); //e*d=1l+1
 	
     //写入公钥
-    fp1 = fopen("./key.pub", "w");
+    fp1 = fopen("./key_pub.txt", "w");
 	if (fp1 == NULL) //判断打开是否成功
 	{
 		printf("读取文件失败！请再次尝试\n");
@@ -202,7 +202,7 @@ void keyg(void)
 	fclose(fp1);
 			
     // 写入私钥
-	fp1 = fopen("./key", "w");
+	fp1 = fopen("./key.txt", "w");
 	if (fp1 == NULL) //判断打开是否成功
 	{
 		printf("读取文件失败！请再次尝试\n");
@@ -220,7 +220,7 @@ void encall(void)
     FILE *fp2 = NULL;
     int i = 0;
     int n = 0;
-    printf("请输入要加密的文件路径：");
+    printf("请输入要加密的文件路径：\n");
     char address[ADDRESS_L];
     scanf("%s", address);
     while (getchar() != '\n')
@@ -262,7 +262,7 @@ void encall(void)
         af = enc_k(bf, n, pk);
 
         //写入密文
-        fp2 = fopen("./miwen", "w"); //打开指定文件
+        fp2 = fopen("./miwen.txt", "w"); //打开指定文件
         if (fp2 == NULL) //判断打开是否成功
         {
             printf("读取文件失败！请再次尝试\n");
@@ -298,7 +298,7 @@ void encall(void)
 
 
         //写入密文
-        fp2 = fopen("./miwen", "w"); //打开指定文件
+        fp2 = fopen("./miwen.txt", "w"); //打开指定文件
         if (fp2 == NULL) //判断打开是否成功
         {
             printf("读取文件失败！请再次尝试\n");
@@ -335,7 +335,7 @@ void decall(void)
     if (k == 'y' || k == 'Y')
     {
         //读取密文
-        printf("请输入要解密的文件路径：");
+        printf("请输入要解密的文件路径：\n");
         char address[ADDRESS_L];
         scanf("%s", address);
         while (getchar() != '\n')
@@ -380,7 +380,7 @@ void decall(void)
         af = dec_k(bf, n, pk);
 
         //写入明文
-        fp2 = fopen("./mingwen", "w"); //打开指定文件
+        fp2 = fopen("./mingwen.txt", "w"); //打开指定文件
         if (fp2 == NULL) //判断打开是否成功
         {
             printf("读取文件失败！请再次尝试\n");
@@ -399,7 +399,7 @@ void decall(void)
         printf("完成！\n\n");
     }else{
         //读取密文
-        printf("请输入要解密的文件路径：");
+        printf("请输入要解密的文件路径：\n");
         char address[ADDRESS_L];
         scanf("%s", address);
         while (getchar() != '\n')
@@ -438,7 +438,7 @@ void decall(void)
 
 
         //写入明文
-        fp2 = fopen("./mingwen", "w"); //打开指定文件
+        fp2 = fopen("./mingwen.txt", "w"); //打开指定文件
         if (fp2 == NULL) //判断打开是否成功
         {
             printf("读取文件失败！请再次尝试\n");
