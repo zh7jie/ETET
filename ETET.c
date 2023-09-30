@@ -31,8 +31,7 @@ int main (int argc, char *argv[]) //加密文本文件
                    "usage:\tetet [OPTION] [FILE]\n"
                    "OPTION:\t-e encryption\n"
                    "\t-d decrypt\n"
-                   "\t-k generate key\n"
-                   "You can feel free to use and modify the source code don't need my allow, and I do not reserve the right of authorship. \n"); //打印使用帮助
+                   "\t-k generate key\n"); //打印使用帮助
             exit(0); 
             //正常退出
 
